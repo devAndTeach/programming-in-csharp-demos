@@ -19,7 +19,7 @@ namespace BinarySerializationConsoleApp
             // Create the formatter you want to use to serialize the object.
             IFormatter formatter = new BinaryFormatter();
             // Create the stream that the serialized data will be buffered to.
-            FileStream buffer = File.Create($@"{System.Environment.CurrentDirectory}\config2.txt");
+            FileStream buffer = File.Create($@"{System.Environment.CurrentDirectory}\config.txt");
             // Invoke the Serialize method.
             formatter.Serialize(buffer, config);
             // Close the stream.
