@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BinarySerializationConsoleApp.Models
 {   
     [Serializable]
-    public class ServiceConfiguration //: ISerializable
+    public class ServiceConfiguration : ISerializable
     {
 
         [NonSerialized]
