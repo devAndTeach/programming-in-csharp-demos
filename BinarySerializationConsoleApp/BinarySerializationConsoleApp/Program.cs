@@ -1,4 +1,5 @@
 ﻿using BinarySerializationConsoleApp.Models;
+using Json.Net;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,11 +20,20 @@ namespace BinarySerializationConsoleApp
             // Create the formatter you want to use to serialize the object.
             IFormatter formatter = new BinaryFormatter();
             // Create the stream that the serialized data will be buffered to.
-            FileStream buffer = File.Create($@"{System.Environment.CurrentDirectory}\config.txt");
+            FileStream buffer = File.Create($@"{System.Environment.CurrentDirectory}\config_without_interface.txt");
             // Invoke the Serialize method.
             formatter.Serialize(buffer, config);
             // Close the stream.
             buffer.Close();
+
+            Console.WriteLine("ServiceConfiguration instance serialized....");
+
+            var data = JsonNet.Serialize(config);
+            File.WriteAllText($@"{System.Environment.CurrentDirectory}\serviceconfiguration.json",data);
+
+            Console.WriteLine("ServiceConfiguration instance as JSON....");
+
+
         }
     }
 }
